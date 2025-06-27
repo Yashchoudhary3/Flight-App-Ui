@@ -194,7 +194,6 @@ UPDATE users SET role = 'admin' WHERE email = 'your-email@example.com';
   - Tailwind CSS styling
   - Modern UI components
 
-### 🔄 In Progress Features
 
 - **Offline Support**
   - IndexedDB for flight data caching
@@ -236,17 +235,43 @@ UPDATE users SET role = 'admin' WHERE email = 'your-email@example.com';
 
 ## Deployment
 
-### Frontend (Vercel)
+##  Render Deployment Guide (Frontend + Backend)
 
-1. Connect your GitHub repository to Vercel
-2. Set environment variables in Vercel dashboard
-3. Deploy automatically on push to main branch
+---
 
-### Backend (Railway/Heroku)
+###  Frontend (CRA) Deployment
 
-1. Connect your repository to Railway/Heroku
-2. Set environment variables
-3. Deploy the server directory
+- Go to Render → **New → Static Site**
+- Connect GitHub repository
+- **Root Directory**: `client`
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `build`
+- Add required **environment variables** (e.g. `REACT_APP_API_URL`, `REACT_APP_SUPABASE_URL`, etc.)
+- Add **Redirect Rule**:
+- Click **Deploy**
+
+---
+
+###  Backend (Node.js) Deployment
+
+- Go to Render → **New → Web Service**
+- Connect GitHub repository
+- **Root Directory**: `server`
+- **Build Command**: `npm install`
+- **Start Command**: `node index.js` *(or `npm start` if defined)*
+- Add required **environment variables**:
+- `PORT`
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_KEY`
+- `JWT_SECRET`
+- `CORS_ORIGIN`
+- etc.
+- Click **Deploy**
+
+---
+
+ Both frontend and backend are now deployed and live on Render.
+
 
 ### Database (Supabase)
 
