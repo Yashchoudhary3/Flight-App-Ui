@@ -1,5 +1,12 @@
 services:
   - type: web
+    name: flight-app-backend
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+
+  - type: web
     name: flight-app-frontend
     env: static
     rootDir: client
