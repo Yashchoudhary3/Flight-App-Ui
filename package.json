@@ -1,0 +1,19 @@
+{
+  "name": "flight-booking-system",
+  "version": "1.0.0",
+  "description": "A comprehensive flight booking system with React.js, Node.js, and Supabase",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "setup": "npm run install-all"
+  },
+  "keywords": ["flight", "booking", "react", "node", "supabase"],
+  "author": "Yash Choudhary",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 
