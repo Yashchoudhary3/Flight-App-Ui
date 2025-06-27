@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: flight-app-backend
+    env: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && node index.js # or npm start
+    rootDir: server
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: DB_URL
+        value: YOUR_DB_URL_HERE
+
+  - type: web
+    name: flight-app-frontend
+    env: node
+    plan: free
+    buildCommand: cd client && npm install && npm run build
+    startCommand: cd client && npm run preview # for Vite
+    rootDir: client
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://flight-app-backend.onrender.com
